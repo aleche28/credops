@@ -3,6 +3,7 @@
 **Status:** Draft — design phase, nothing implemented
 **Author:** Alessio Chessa
 **Last updated:** 2026-10-22
+**License:** MIT
 
 ---
 
@@ -508,24 +509,23 @@ without a live tenant.
 
 ## 7. Open questions
 
-1. **License.** Not yet chosen. Affects corporate adoption.
-2. **Exact Graph permission scopes.** The design requires a least-privilege *read* set
+1. **Exact Graph permission scopes.** The design requires a least-privilege *read* set
    covering applications, service principals and owners, plus a delegated set for writes.
    The precise scope names must be confirmed against current Graph documentation rather than
    assumed.
-3. **Change tracking.** Whether Microsoft Graph offers delta / change-tracking for
+2. **Change tracking.** Whether Microsoft Graph offers delta / change-tracking for
    applications and service principals — and with what caveats — needs verification. It
    materially affects §4.16.
-4. **Teams delivery mechanism.** Which incoming-webhook mechanism is current for Teams needs
+3. **Teams delivery mechanism.** Which incoming-webhook mechanism is current for Teams needs
    checking before implementation; do not assume.
-5. **Notification opt-in flag name.** TBD.
-6. **Store engines.** Which embedded and which networked store to support — deliberately not
+4. **Notification opt-in flag name.** TBD.
+5. **Store engines.** Which embedded and which networked store to support — deliberately not
    decided in this document.
-7. **Milestone 2 placement.** Whether the onboarding flow should precede or follow additional
+6. **Milestone 2 placement.** Whether the onboarding flow should precede or follow additional
    channels (§8) is a proposal, not a decision.
-8. **Shared-mode configuration distribution.** In team-shared deployments, how the structural
+7. **Shared-mode configuration distribution.** In team-shared deployments, how the structural
    configuration file reaches the agent host is unresolved.
-9. **Precedence among ceilings (§4.11).** The global kill switch says "send nothing"; the
+8. **Precedence among ceilings (§4.11).** The global kill switch says "send nothing"; the
    self-credential alert says "send to every channel, unsuppressibly". These directly
    contradict each other and no winner has been chosen. CLI display of the self-credential
    alert presumably survives either way, but the delivery question is open.

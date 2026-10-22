@@ -101,4 +101,4 @@ questions in §7.
 
 ## License
 
-To be decided.
+[MIT](LICENSE) © 2026 Alessio Chessa
