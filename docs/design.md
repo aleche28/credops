@@ -1,6 +1,6 @@
 # credops — Design Document
 
-**Status:** Draft — design phase, nothing implemented
+**Status:** Draft — M1 in progress, only the CLI skeleton is implemented
 **Author:** Alessio Chessa
 **Last updated:** 2026-11-26
 **License:** MIT
@@ -119,6 +119,9 @@ The three invocation modes:
 
 The governing rule: **the CLI must never require a running agent in order to answer a
 question.**
+
+credops is written in Go, and its command-line interface is built on cobra. Decision record:
+[ADR-0002](adr/0002-use-go-and-cobra-for-the-cli.md).
 
 ---
 

@@ -1,0 +1,18 @@
+# Build output
+/bin/
+/dist/
+/credops
+*.exe
+
+# Go test artifacts and coverage profiles
+*.test
+*.out
+coverage.*
+*.coverprofile
+
+# Go workspace file
+go.work
+go.work.sum
+
+# macOS
+.DS_Store
