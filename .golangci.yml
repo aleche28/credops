@@ -1,0 +1,64 @@
+version: "2"
+
+linters:
+  default: standard
+  enable:
+    - asciicheck
+    - bodyclose
+    - errorlint
+    - forbidigo
+    - gocognit
+    - godoclint
+    - gosec
+    - misspell
+    - noctx
+    - nolintlint
+  exclusions:
+    rules:
+      - path: '(.+)_test\.go'
+        linters:
+          - errcheck
+          - gocognit
+          - gosec
+          - noctx
+      # main is the one place that turns the CLI's result into a process exit code (ADR-0002).
+      - path: '^cmd/credops/main\.go$'
+        text: 'os\.Exit'
+        linters:
+          - forbidigo
+  settings:
+    forbidigo:
+      forbid:
+        - pattern: '^os\.Exit$'
+          msg: "return an error or exit code to main instead; only cmd/credops/main.go exits"
+        - pattern: '^log\.Fatal(f|ln)?$'
+          msg: "return an error instead; exiting deep in the call stack skips defers and hides the exit code"
+        - pattern: '^fmt\.Print(f|ln)?$'
+          msg: "write to the command's writer (cmd.OutOrStdout() / cmd.ErrOrStderr()) so tests can capture it"
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+    errcheck:
+      exclude-functions:
+        - "(io.Closer).Close"
+    gosec:
+      excludes:
+        - G104
+
+formatters:
+  enable:
+    # golangci-lint applies formatters in a fixed order (gci always last), not in this order
+    - gofumpt
+    - gci
+  settings:
+    gofumpt:
+      module-path: github.com/aleche28/credops
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

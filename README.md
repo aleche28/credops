@@ -2,9 +2,9 @@
 
 Monitor expiring Entra ID app registration secrets and certificates across multiple tenants.
 
-> **Status: design phase — nothing is implemented yet.**
-> This repository currently contains the design only. There is no code, no release, and no
-> installable binary. See [`docs/design.md`](docs/design.md).
+> **Status: early development — only a CLI skeleton exists.**
+> `credops version` works; nothing else does yet. There is no release. Work toward the MVP is
+> tracked in [`docs/design.md`](docs/design.md) §8.
 
 ---
 
@@ -98,8 +98,22 @@ $ credops agent run
 
 ## Status and contributing
 
-Design phase. The design document is the place to push back — particularly on the open
-questions in §7.
+Early development, working toward the MVP. The design document is the place to push back —
+particularly on the open questions in §7.
+
+### Building from source
+
+Requires Go 1.26 or later and `make`. The lint and format targets also need
+[golangci-lint](https://golangci-lint.run/) v2.
+
+```console
+$ make build                 # builds bin/credops with version metadata
+$ ./bin/credops version
+$ make ci                    # every check CI runs
+$ make help                  # all targets
+```
+
+Alternatively, `go install github.com/aleche28/credops/cmd/credops@latest`.
 
 ## License
 
