@@ -93,6 +93,8 @@ $ credops agent run
 - [`docs/design.md`](docs/design.md) — full design document: scope, goals and non-goals,
   architecture, notification and configuration models, alternatives considered, open
   questions, and milestones.
+- [`docs/adr/`](docs/adr/README.md) — architecture decision records: why the design is the
+  way it is.
 
 ## Status and contributing
 
