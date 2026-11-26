@@ -2,7 +2,7 @@
 
 **Status:** Draft — design phase, nothing implemented
 **Author:** Alessio Chessa
-**Last updated:** 2026-10-22
+**Last updated:** 2026-11-26
 **License:** MIT
 
 ---
@@ -533,6 +533,12 @@ without a live tenant.
 ---
 
 ## 8. Milestones
+
+Each milestone is a GitHub milestone named like its heading (for example "M1 — MVP"), and its
+tasks are issues in that milestone, tracked on the
+[credops project](https://github.com/users/aleche28/projects/3). Open questions from §7 are
+issues labelled `decision`, closed by an ADR. Work that belongs to no milestone yet goes in
+"Later". Moving work between milestones means updating this section, with an ADR.
 
 ### M1 — MVP
 
