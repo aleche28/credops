@@ -14,4 +14,5 @@ An ADR records one decision: the context, the options we considered, what we cho
 | --- | ----- | ------ | ---- |
 | [0001](0001-record-architecture-decisions.md) | Record architecture decisions as ADRs | Accepted | 2026-11-26 |
 | [0002](0002-use-go-and-cobra-for-the-cli.md) | Use Go for the implementation and cobra for the CLI | Accepted | 2026-11-26 |
+| [0003](0003-use-sqlite-via-modernc-for-the-embedded-store.md) | Use SQLite via modernc.org/sqlite for the embedded store, with goose migrations | Accepted | 2026-11-27 |
 <!-- adr-index:end -->
