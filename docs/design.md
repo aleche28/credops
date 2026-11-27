@@ -247,6 +247,13 @@ The store abstraction supports two modes:
 "worked fine until two people ran it at once" corruption. Shared mode requires a genuinely
 networked store, and the tool should refuse the misconfiguration rather than tolerate it.
 
+The embedded store is SQLite through `modernc.org/sqlite`, a pure-Go build, so releases
+need no cgo. Schema migrations are versioned SQL files embedded in the binary and applied
+with goose when the store opens. Before opening it, credops checks the filesystem type of the
+store's directory and refuses a network filesystem (NFS, SMB/CIFS, a UNC path or a remote
+drive), pointing the operator to shared mode. Decision record:
+[ADR-0003](adr/0003-use-sqlite-via-modernc-for-the-embedded-store.md).
+
 Shared mode needs no custom authentication system: access to the store is governed by the
 store, and access to Entra is governed by each operator's own identity.
 
@@ -522,8 +529,9 @@ without a live tenant.
 3. **Teams delivery mechanism.** Which incoming-webhook mechanism is current for Teams needs
    checking before implementation; do not assume.
 4. **Notification opt-in flag name.** TBD.
-5. **Store engines.** Which embedded and which networked store to support — deliberately not
-   decided in this document.
+5. **Store engines.** Which networked store to support (M5) is still open. *Embedded half
+   resolved:* SQLite through `modernc.org/sqlite`
+   ([ADR-0003](adr/0003-use-sqlite-via-modernc-for-the-embedded-store.md)).
 6. **Milestone 2 placement.** Whether the onboarding flow should precede or follow additional
    channels (§8) is a proposal, not a decision.
 7. **Shared-mode configuration distribution.** In team-shared deployments, how the structural
